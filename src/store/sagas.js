@@ -27,3 +27,16 @@ export function* getItemsSaga() {
     });
     yield put(populateList(componentArray));
 }
+
+export function* markDoneSaga(action) {
+    const position = action.payload.position;
+
+
+    const newItem ={
+        // done: !position.done,
+        // title: position.title,
+    };
+
+    yield axiosInstance.put(`/items/${position.key}.json`, newItem);
+    yield put(getItems());
+}

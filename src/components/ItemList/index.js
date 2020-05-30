@@ -30,12 +30,15 @@ class ItemList extends Component {
                         data={this.props.list}
                         renderItem={(position) =>
                             <ListItem
-                            itemKey={position.item.key}
-                            title={position.item.title}
-                            onPressItem={this.props.onPressItem || null}
-                            done={position.item.done || false}
-                            onEditItem={this.props.onEditItem}
-                            onDeleteItem={this.props.onDeleteItem}
+                                itemKey={position.item.key}
+                                title={position.item.title}
+                                onPressItem={this.props.onPressItem ?()=>{
+                                    this.props.onPressItem(position.item);
+                                }: null
+                                }
+                                done={position.item.done || false}
+                                onEditItem={this.props.onEditItem}
+                                onDeleteItem={this.props.onDeleteItem}
                             />
                         }
                     />

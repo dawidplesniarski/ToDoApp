@@ -30,7 +30,7 @@ class ListItem extends Component {
                         if(!this.props.onPressItem){
                             return null;
                         }
-                        this.props.onPressItem(this.props.itemKey)
+                        this.props.onPressItem();
                     }}>
                         {this.renderIcon()}
                     </TouchableOpacity>
